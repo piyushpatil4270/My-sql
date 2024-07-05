@@ -30,6 +30,10 @@
                                     <a href="/products/<%= product.id %>" class="btn">Details</a>
                                     <%- include('../includes/add-to-cart.ejs', {product: product}) %>
                                 </div>
+                                <form action="/admin/delete-product" method="POST" style="display: inline;display: flex;justify-content: center;">
+                                    <input type="hidden" name="productId" value="<%= product.id %>">
+                                    <button type="submit" class="btn">Delete</button>
+                                  </form>
                             </article>
                             <% } %>
                     </div>
