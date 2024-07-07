@@ -13,13 +13,14 @@ exports.postAddProduct = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-  Product.create({
+   req.user.createProduct({
     title:title,
     price:price,
     imageUrl:imageUrl,
-    description:description
+    description:description,
+    userId:req.user.id
   })
-  .then((val)=>{console.log(val)})
+  .then((val)=>{console.log("Created Product")})
   .catch((err)=>{console.log("Error :",err)})
 };
 
